@@ -1,0 +1,44 @@
+
+
+
+//Comentarios:
+Se fueron detallando claramente las cosas que se iban modificando.
+Se mostró conocimiento técnico.
+La comunicación fue clara.
+La resolución pronta y efectiva.
+
+
+package com.codigo6;
+import java.util.Scanner;
+
+//Con este código, se generarán 20 números aleatorios, se pide al usuario que elija una opción (1 o 2) y se resaltan los múltiplos de 5 o 7 de acuerdo con la opción elegida.
+public class codigo6 {
+	public static void main(String[] args) {//se agrega main
+	  
+    int[] n = new int[20]; // se agregó new para establecer un array de 20 números
+
+    //generará un array de 20 números al azar
+    for (int i = 0; i < 20; i++) {//se cambia de + a  ++
+      n[i] = (int)(Math.random() * 381) + 20;
+      System.out.print(n[i] + " ");// de System.print a System.out.print
+    }
+    
+    System.out.println("\n¿Qué números quiere resaltar? ");
+    System.out.println("(1 – los múltiplos de 5, 2 – los múltiplos de 7): ");
+    //int opcion = Integer.parseInt(System.console().readLine()); //se cambia a Scanner
+    Scanner scanner = new Scanner (System.in);
+    int opcion = scanner.nextInt();
+    
+    int multiplo = (opcion == 1) ? 5 : 7; //se cambió (opcion == 1) : 5 ? 7; Así, si la opción es 1, elegimos 5, si es falso, elegimos 7
+
+    for (int e : n) { //de char a int y de foreach a for
+      if (e % multiplo == 0) {
+        System.out.print("[" + e + "] ");} //se agrega } faltante
+       else {
+        System.out.print(e + " ");//se cambia System.in por System.out
+      }
+    }
+	}
+}
+
+
